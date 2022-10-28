@@ -6,6 +6,7 @@ import 'app/app_widget.dart';
 void main() {
   GetItConfig getItconfig = GetItConfig();
 
+  getItconfig.registerDio();
   getItconfig.registerControllers();
 
   runApp(const AppWidget());
