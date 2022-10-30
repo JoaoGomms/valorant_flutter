@@ -8,15 +8,16 @@ class GetItConfig {
   GetIt sl = GetIt.instance;
 
   void registerDio() {
-    sl.registerSingleton<Dio>(
-        Dio(BaseOptions(
-          baseUrl: 'https://valorant-api.com/v1',
-        )),
+    sl.registerFactory<Dio>(
+        () => Dio(BaseOptions(
+              baseUrl: 'https://valorant-api.com/v1',
+            )),
         instanceName: 'valorantDioClient');
   }
 
   void registerControllers() {
-    sl.registerSingleton<ValorantService>(ValorantService(GetIt.I<Dio>()));
-    sl.registerSingleton<HomeController>(HomeController(GetIt.I()));
+    sl.registerFactory<ValorantService>(
+        () => ValorantService(GetIt.I<Dio>(instanceName: 'valorantDioClient')));
+    sl.registerFactory<HomeController>(() => HomeController(GetIt.I()));
   }
 }

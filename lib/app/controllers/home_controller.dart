@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:valorant_flutter/app/models/agents.dart';
+import 'package:valorant_flutter/app/models/agent.dart';
 import 'package:valorant_flutter/app/services/valorant_service.dart';
 part 'home_controller.g.dart';
 
@@ -11,7 +11,7 @@ abstract class _HomeControllerBase with Store {
   _HomeControllerBase(this.service);
 
   @observable
-  ObservableList<Agents> agents = ObservableList();
+  ObservableList<Agent> agents = ObservableList();
 
   @action
   Future<void> fetchAgents() async {

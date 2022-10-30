@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/views/home_screen.dart';
+import 'package:valorant_flutter/app/views/home/home_screen.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({Key? key}) : super(key: key);
