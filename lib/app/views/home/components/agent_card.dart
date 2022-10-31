@@ -30,19 +30,19 @@ class _AgentCardState extends State<AgentCard> {
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            height: 250,
+            height: 260,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    transform: GradientRotation(6),
+                    transform: const GradientRotation(6),
                     colors: transformIntoColor(widget.agent.gradientColors)),
                 borderRadius: BorderRadius.circular(16)),
           ),
           Positioned(
             bottom: 32.0,
-            child: SizedBox(
-                height: 280,
-                child: Image.network(widget.agent.imageUrl,
-                    fit: BoxFit.fitHeight)),
+            child: Image.network(widget.agent.imageUrl,
+                height: 300,
+                filterQuality: FilterQuality.high,
+                fit: BoxFit.fitHeight),
           ),
           const SizedBox(
             height: 2,

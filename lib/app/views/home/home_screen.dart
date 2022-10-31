@@ -29,14 +29,22 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Image.asset('valorant_icon.png'),
-                Text('Escolha seu Agente'),
+                const Image(
+                  image: AssetImage(
+                    'assets/valorant_icon.png',
+                  ),
+                ),
+                const Text(
+                  'Escolha seu Agente',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
+                ),
                 Observer(builder: (context) {
                   return GridView.count(
                       childAspectRatio: 0.5,
                       crossAxisCount: 2,
+                      crossAxisSpacing: 8,
                       shrinkWrap: true,
-                      physics: ScrollPhysics(),
+                      physics: const ScrollPhysics(),
                       children: controller.agents
                           .map((element) => AgentCard(agent: element))
                           .toList());

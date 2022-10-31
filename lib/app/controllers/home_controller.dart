@@ -13,6 +13,10 @@ abstract class _HomeControllerBase with Store {
   @observable
   ObservableList<Agent> agents = ObservableList();
 
+  @observable
+  List<Agent> get controllerAgents =>
+      agents.where((agent) => agent.role.name == 'controller').toList();
+
   @action
   Future<void> fetchAgents() async {
     var agentsResponse = await service.getValorantAgents();
