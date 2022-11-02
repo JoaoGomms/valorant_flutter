@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_flutter/app/views/agent_detail/agent_detail_screen.dart';
 import 'package:valorant_flutter/app/views/home/home_screen.dart';
 
 class AppWidget extends StatefulWidget {
@@ -13,7 +14,10 @@ class _AppWidgetState extends State<AppWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: '/home',
-      routes: {'/home': (context) => const HomeScreen()},
+      routes: {
+        '/home': (context) => const HomeScreen(),
+        '/agentDetail': (context) => const AgentDetailScreen(),
+      },
     );
   }
 }

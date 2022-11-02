@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import '../../../extensions/string_to_color.dart';
 
 import '../../../models/agent.dart';
 
@@ -9,17 +10,6 @@ class AgentCard extends StatefulWidget {
 
   @override
   State<AgentCard> createState() => _AgentCardState();
-}
-
-List<Color> transformIntoColor(List<dynamic> stringColors) {
-  List<Color> colors = [];
-
-  for (String stringColor in stringColors) {
-    colors.add(Color(int.parse('FF${stringColor.substring(0, 6)}', radix: 16))
-        .withOpacity(1));
-  }
-
-  return colors;
 }
 
 class _AgentCardState extends State<AgentCard> {
@@ -35,7 +25,10 @@ class _AgentCardState extends State<AgentCard> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     transform: const GradientRotation(6),
-                    colors: transformIntoColor(widget.agent.gradientColors)),
+                    colors: widget.agent.gradientColors
+                        .getRange(0, 3)
+                        .map((stringColor) => (stringColor as String).toColor())
+                        .toList()),
                 borderRadius: BorderRadius.circular(16)),
           ),
           Positioned(

@@ -19,8 +19,7 @@ class Agent {
       description: json['description'] ?? '',
       imageUrl: json['bustPortrait'] ?? '',
       role: Role.fromJson(json['role']),
-      gradientColors:
-          (json['backgroundGradientColors'] as List).getRange(0, 2).toList());
+      gradientColors: (json['backgroundGradientColors'] as List).toList());
 
   String toString() {
     return 'Agent: $name, Description $description';
