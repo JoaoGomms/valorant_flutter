@@ -26,14 +26,16 @@ class _AgentDetailScreenState extends State<AgentDetailScreen> {
         ),
         Expanded(
             flex: 2,
-            child: Column(
-              children: [
-                AgentInfo(agent: agent),
-                SizedBox(
-                  height: 8,
-                ),
-                AgentAbilities(agent: agent),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  AgentInfo(agent: agent),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  AgentAbilities(agent: agent),
+                ],
+              ),
             ))
       ]),
     );

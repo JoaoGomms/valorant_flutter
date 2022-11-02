@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valorant_flutter/app/extensions/string_to_color.dart';
-import 'package:valorant_flutter/app/models/abilities.dart';
+import 'package:valorant_flutter/app/models/abilitiy.dart';
 import 'package:valorant_flutter/app/models/role.dart';
 
 class Agent {
@@ -8,7 +8,7 @@ class Agent {
   final String description;
   final String imageUrl;
   final Role role;
-  final List<Abilities> abilities;
+  final List<Ability> abilities;
   final List<Color> gradientColors;
 
   Agent({
@@ -32,7 +32,7 @@ class Agent {
             : [],
         abilities: (json['abilities'] as List).isNotEmpty
             ? (json['abilities'] as List)
-                .map((e) => Abilities.fromJson(e))
+                .map((e) => Ability.fromJson(e))
                 .toList()
             : [],
       );

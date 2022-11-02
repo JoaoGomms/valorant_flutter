@@ -1,16 +1,16 @@
-class Abilities {
+class Ability {
   final String slot;
   final String displayName;
   final String description;
   final String displayIcon;
 
-  Abilities(
+  Ability(
       {required this.slot,
       required this.displayName,
       required this.description,
       required this.displayIcon});
 
-  factory Abilities.fromJson(Map<String, dynamic> json) => Abilities(
+  factory Ability.fromJson(Map<String, dynamic> json) => Ability(
       slot: json['slot'] ?? '',
       displayName: json['displayName'] ?? '',
       description: json['description'] ?? '',
