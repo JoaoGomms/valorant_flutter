@@ -26,52 +26,78 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   List<Widget> tabWidgets() {
-    return [Text('Todos'), Text('Controladores')];
+    return const [
+      Text('Todos'),
+      Text('Controladores'),
+      Text('Duelistas'),
+      Text('Sentinelas'),
+      Text('Iniciadores'),
+    ];
   }
 
-  Observer buildGridViews(List<Agent> agents) {
-    return Observer(builder: (context) {
-      return GridView.count(
-          childAspectRatio: 0.5,
-          crossAxisCount: 2,
-          crossAxisSpacing: 8,
-          children:
-              agents.map((element) => AgentCard(agent: element)).toList());
-    });
+  Widget buildGridViews(List<Agent> agents) {
+    return GridView.count(
+        childAspectRatio: 0.5,
+        crossAxisCount: 2,
+        crossAxisSpacing: 8,
+        children: agents.map((element) => AgentCard(agent: element)).toList());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        bottom: false,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               const Image(
+                height: 56,
                 image: AssetImage(
                   'assets/valorant_icon.png',
                 ),
+              ),
+              const SizedBox(
+                height: 24,
               ),
               const Text(
                 'Escolha seu Agente',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
               ),
+              const SizedBox(
+                height: 48,
+              ),
               TabBar(
                   isScrollable: true,
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   controller: tabController,
-                  labelColor: Colors.black,
-                  indicatorColor: Colors.red,
-                  indicatorSize: TabBarIndicatorSize.tab,
+                  labelColor: Colors.red,
+                  labelStyle: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w600),
+                  unselectedLabelColor: Colors.black,
+                  indicator: const UnderlineTabIndicator(
+                    insets: EdgeInsets.symmetric(horizontal: 32),
+                    borderSide: BorderSide(
+                      width: 2,
+                      color: Colors.red,
+                    ),
+                  ),
                   indicatorPadding: const EdgeInsets.symmetric(horizontal: 2),
                   tabs: tabWidgets()),
               Expanded(
-                child: TabBarView(controller: tabController, children: [
-                  buildGridViews(controller.agents),
-                  buildGridViews(controller.controllerAgents),
-                ]),
+                child: Observer(builder: (context) {
+                  return TabBarView(controller: tabController, children: [
+                    buildGridViews(controller.agents),
+                    buildGridViews(controller.controllerAgents),
+                    buildGridViews(controller.duelistAgents),
+                    buildGridViews(controller.sentinelAgents),
+                    buildGridViews(controller.initiatorAgents),
+                  ]);
+                }),
               )
             ],
           ),

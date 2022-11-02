@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/agent.dart';
@@ -38,18 +39,25 @@ class _AgentCardState extends State<AgentCard> {
                 borderRadius: BorderRadius.circular(16)),
           ),
           Positioned(
-            bottom: 32.0,
-            child: Image.network(widget.agent.imageUrl,
+              bottom: 40.0,
+              child: CachedNetworkImage(
+                imageUrl: widget.agent.imageUrl,
                 height: 300,
                 filterQuality: FilterQuality.high,
-                fit: BoxFit.fitHeight),
-          ),
-          const SizedBox(
-            height: 2,
-          ),
+              )),
           Padding(
             padding: const EdgeInsets.only(bottom: 16),
-            child: Text(widget.agent.name),
+            child: Text(
+              widget.agent.name,
+              style:
+                  const TextStyle(color: Colors.white, fontSize: 20, shadows: [
+                Shadow(
+                  offset: Offset(4, 4),
+                  blurRadius: 25.0,
+                  color: Colors.white,
+                ),
+              ]),
+            ),
           ),
         ],
       ),

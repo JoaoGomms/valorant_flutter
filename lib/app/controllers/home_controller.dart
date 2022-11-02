@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:valorant_flutter/app/models/agent.dart';
 import 'package:valorant_flutter/app/services/valorant_service.dart';
@@ -17,6 +16,18 @@ abstract class _HomeControllerBase with Store {
   @observable
   List<Agent> get controllerAgents =>
       agents.where((agent) => agent.role.name == 'Controller').toList();
+
+  @observable
+  List<Agent> get duelistAgents =>
+      agents.where((agent) => agent.role.name == 'Duelist').toList();
+
+  @observable
+  List<Agent> get initiatorAgents =>
+      agents.where((agent) => agent.role.name == 'Initiator').toList();
+
+  @observable
+  List<Agent> get sentinelAgents =>
+      agents.where((agent) => agent.role.name == 'Sentinel').toList();
 
   @action
   Future<void> fetchAgents() async {
