@@ -12,6 +12,13 @@ class AgentBanner extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(top: 36),
       decoration: BoxDecoration(
+          image: DecorationImage(
+            image: CachedNetworkImageProvider(agent.imageUrl),
+            alignment: Alignment.topCenter,
+            fit: BoxFit.none,
+            scale: 3,
+            opacity: 0.4,
+          ),
           boxShadow: const [BoxShadow(color: Colors.black, blurRadius: 10.0)],
           gradient: LinearGradient(
               colors: agent.gradientColors
@@ -23,17 +30,29 @@ class AgentBanner extends StatelessWidget {
         children: [
           IconButton(
               onPressed: () => Navigator.pop(context),
-              icon: const Icon(Icons.arrow_back)),
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              )),
           Expanded(
             flex: 6,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(agent.name),
-                      Text(agent.role.name),
+                      Text(
+                        agent.name,
+                        style:
+                            const TextStyle(fontSize: 24, color: Colors.white),
+                      ),
+                      Text(agent.role.name,
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.white)),
+                      const SizedBox(
+                        height: 8,
+                      )
                     ],
                   ),
                 ]),

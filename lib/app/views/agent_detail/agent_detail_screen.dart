@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:valorant_flutter/app/models/agent.dart';
+import 'package:valorant_flutter/app/views/agent_detail/components/agent_abilities.dart';
 import 'package:valorant_flutter/app/views/agent_detail/components/agent_banner.dart';
+import 'package:valorant_flutter/app/views/agent_detail/components/agent_info.dart';
 
 class AgentDetailScreen extends StatefulWidget {
   const AgentDetailScreen({Key? key}) : super(key: key);
@@ -19,7 +21,20 @@ class _AgentDetailScreenState extends State<AgentDetailScreen> {
     return Scaffold(
       body: Column(children: [
         Expanded(flex: 1, child: AgentBanner(agent: agent)),
-        Expanded(flex: 2, child: Column())
+        SizedBox(
+          height: 16,
+        ),
+        Expanded(
+            flex: 2,
+            child: Column(
+              children: [
+                AgentInfo(agent: agent),
+                SizedBox(
+                  height: 8,
+                ),
+                AgentAbilities(agent: agent),
+              ],
+            ))
       ]),
     );
   }
