@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import '../../../extensions/string_to_color.dart';
 
 import '../../../models/agent.dart';
 
@@ -25,10 +24,8 @@ class _AgentCardState extends State<AgentCard> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     transform: const GradientRotation(6),
-                    colors: widget.agent.gradientColors
-                        .getRange(0, 3)
-                        .map((stringColor) => (stringColor as String).toColor())
-                        .toList()),
+                    colors:
+                        widget.agent.gradientColors.getRange(0, 3).toList()),
                 borderRadius: BorderRadius.circular(16)),
           ),
           Positioned(

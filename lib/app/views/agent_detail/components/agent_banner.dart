@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/extensions/string_to_color.dart';
 import 'package:valorant_flutter/app/models/agent.dart';
 
 class AgentBanner extends StatelessWidget {
@@ -21,10 +20,7 @@ class AgentBanner extends StatelessWidget {
           ),
           boxShadow: const [BoxShadow(color: Colors.black, blurRadius: 10.0)],
           gradient: LinearGradient(
-              colors: agent.gradientColors
-                  .getRange(1, 3)
-                  .map((e) => (e as String).toColor())
-                  .toList())),
+              colors: agent.gradientColors.getRange(1, 3).toList())),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
