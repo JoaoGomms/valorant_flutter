@@ -11,17 +11,6 @@ class AgentCard extends StatefulWidget {
   State<AgentCard> createState() => _AgentCardState();
 }
 
-List<Color> transformIntoColor(List<dynamic> stringColors) {
-  List<Color> colors = [];
-
-  for (String stringColor in stringColors) {
-    colors.add(Color(int.parse('FF${stringColor.substring(0, 6)}', radix: 16))
-        .withOpacity(1));
-  }
-
-  return colors;
-}
-
 class _AgentCardState extends State<AgentCard> {
   @override
   Widget build(BuildContext context) {
@@ -35,7 +24,8 @@ class _AgentCardState extends State<AgentCard> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     transform: const GradientRotation(6),
-                    colors: transformIntoColor(widget.agent.gradientColors)),
+                    colors:
+                        widget.agent.gradientColors.getRange(0, 2).toList()),
                 borderRadius: BorderRadius.circular(16)),
           ),
           Positioned(

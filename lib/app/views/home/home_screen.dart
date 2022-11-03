@@ -40,7 +40,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         childAspectRatio: 0.5,
         crossAxisCount: 2,
         crossAxisSpacing: 8,
-        children: agents.map((element) => AgentCard(agent: element)).toList());
+        children: agents
+            .map((agent) => InkWell(
+                onTap: () => Navigator.pushNamed(context, '/agentDetail',
+                    arguments: agent),
+                child: AgentCard(agent: agent)))
+            .toList());
   }
 
   @override
