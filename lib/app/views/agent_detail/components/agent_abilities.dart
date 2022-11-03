@@ -19,6 +19,7 @@ class AgentAbilities extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
           ListView.builder(
+              padding: EdgeInsets.zero,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: agent.abilities.length,
               shrinkWrap: true,
@@ -27,9 +28,10 @@ class AgentAbilities extends StatelessWidget {
                 return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 8),
                       decoration: BoxDecoration(
-                          color: agent.gradientColors.first,
+                          color: agent.gradientColors.first.withOpacity(0.5),
                           borderRadius: BorderRadius.circular(4)),
                       child: Row(
                           mainAxisSize: MainAxisSize.min,

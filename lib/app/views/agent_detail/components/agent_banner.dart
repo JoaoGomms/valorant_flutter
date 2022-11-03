@@ -20,7 +20,7 @@ class AgentBanner extends StatelessWidget {
           ),
           boxShadow: const [BoxShadow(color: Colors.black, blurRadius: 10.0)],
           gradient: LinearGradient(
-              colors: agent.gradientColors.getRange(1, 3).toList())),
+              colors: agent.gradientColors.getRange(0, 2).toList())),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

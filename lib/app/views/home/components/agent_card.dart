@@ -25,7 +25,7 @@ class _AgentCardState extends State<AgentCard> {
                 gradient: LinearGradient(
                     transform: const GradientRotation(6),
                     colors:
-                        widget.agent.gradientColors.getRange(0, 3).toList()),
+                        widget.agent.gradientColors.getRange(0, 2).toList()),
                 borderRadius: BorderRadius.circular(16)),
           ),
           Positioned(
