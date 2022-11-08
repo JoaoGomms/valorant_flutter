@@ -18,6 +18,9 @@ class AgentAbilities extends StatelessWidget {
             'Habilidades',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
+          const SizedBox(
+            height: 16,
+          ),
           ListView.builder(
               padding: EdgeInsets.zero,
               physics: const NeverScrollableScrollPhysics(),

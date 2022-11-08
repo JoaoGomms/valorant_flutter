@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:valorant_flutter/app/controllers/home_controller.dart';
-import 'package:valorant_flutter/app/views/home/components/agent_card.dart';
 
 import '../../models/agent.dart';
+import 'components/agent_card.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class AgentsList extends StatefulWidget {
+  const AgentsList({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<AgentsList> createState() => _AgentsListState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
   HomeController controller = GetIt.I.get<HomeController>();
   late TabController tabController;
 
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     ];
   }
 
-  Widget buildGridViews(List<Agent> agents) {
+  Widget _buildGridViews(List<Agent> agents) {
     return GridView.count(
         childAspectRatio: 0.5,
         crossAxisCount: 2,
@@ -51,6 +51,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          title: const Image(
+            height: 56,
+            image: AssetImage(
+              'assets/valorant_icon.png',
+            ),
+          ),
+          leading: IconButton(
+              color: Colors.black,
+              onPressed: () => Navigator.canPop(context)
+                  ? Navigator.pop(context)
+                  : Navigator.pushNamed(context, '/home'),
+              icon: const Icon(Icons.arrow_back))),
       body: SafeArea(
         bottom: false,
         child: Padding(
@@ -60,12 +76,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              const Image(
-                height: 56,
-                image: AssetImage(
-                  'assets/valorant_icon.png',
-                ),
-              ),
               const SizedBox(
                 height: 24,
               ),
@@ -96,11 +106,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               Expanded(
                 child: Observer(builder: (context) {
                   return TabBarView(controller: tabController, children: [
-                    buildGridViews(controller.agents),
-                    buildGridViews(controller.controllerAgents),
-                    buildGridViews(controller.duelistAgents),
-                    buildGridViews(controller.sentinelAgents),
-                    buildGridViews(controller.initiatorAgents),
+                    _buildGridViews(controller.agents),
+                    _buildGridViews(controller.controllerAgents),
+                    _buildGridViews(controller.duelistAgents),
+                    _buildGridViews(controller.sentinelAgents),
+                    _buildGridViews(controller.initiatorAgents),
                   ]);
                 }),
               )
