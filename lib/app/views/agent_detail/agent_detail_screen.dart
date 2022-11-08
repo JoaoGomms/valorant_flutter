@@ -21,17 +21,17 @@ class _AgentDetailScreenState extends State<AgentDetailScreen> {
     return Scaffold(
       body: Column(children: [
         Expanded(flex: 1, child: AgentBanner(agent: agent)),
-        SizedBox(
-          height: 16,
-        ),
         Expanded(
             flex: 2,
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 16,
+                  ),
                   AgentInfo(agent: agent),
                   SizedBox(
-                    height: 8,
+                    height: 16,
                   ),
                   AgentAbilities(agent: agent),
                 ],
