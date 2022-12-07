@@ -5,8 +5,6 @@ class Role {
 
   Role({required this.name, required this.description, required this.iconUrl});
 
-  factory Role.fromJson(Map<String, dynamic> json) => Role(
-      name: json['displayName'] ?? '',
-      description: json['description'] ?? '',
-      iconUrl: json['displayIcon'] ?? '');
+  factory Role.fromJson(Map<String, dynamic> json) =>
+      Role(name: json['displayName'] ?? '', description: json['description'] ?? '', iconUrl: json['displayIcon'] ?? '');
 }

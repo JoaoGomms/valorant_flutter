@@ -23,9 +23,7 @@ class _AgentCardState extends State<AgentCard> {
             height: 260,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    transform: const GradientRotation(6),
-                    colors:
-                        widget.agent.gradientColors.getRange(0, 2).toList()),
+                    transform: const GradientRotation(6), colors: widget.agent.gradientColors.getRange(0, 2).toList()),
                 borderRadius: BorderRadius.circular(16)),
           ),
           Positioned(
@@ -39,8 +37,7 @@ class _AgentCardState extends State<AgentCard> {
             padding: const EdgeInsets.only(bottom: 16),
             child: Text(
               widget.agent.name,
-              style:
-                  const TextStyle(color: Colors.white, fontSize: 20, shadows: [
+              style: const TextStyle(color: Colors.white, fontSize: 20, shadows: [
                 Shadow(
                   offset: Offset(4, 4),
                   blurRadius: 25.0,

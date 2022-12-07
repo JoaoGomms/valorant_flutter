@@ -27,14 +27,10 @@ class Agent {
         imageUrl: json['bustPortrait'] ?? '',
         role: Role.fromJson(json['role']),
         gradientColors: (json['backgroundGradientColors'] as List).isNotEmpty
-            ? (json['backgroundGradientColors'] as List)
-                .map((e) => (e as String).toColor())
-                .toList()
+            ? (json['backgroundGradientColors'] as List).map((e) => (e as String).toColor()).toList()
             : [],
         abilities: (json['abilities'] as List).isNotEmpty
-            ? (json['abilities'] as List)
-                .map((e) => Ability.fromJson(e))
-                .toList()
+            ? (json['abilities'] as List).map((e) => Ability.fromJson(e)).toList()
             : [],
       );
 
