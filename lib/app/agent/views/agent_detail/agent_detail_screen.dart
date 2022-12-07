@@ -1,10 +1,9 @@
 // ignore_for_file: sort_child_properties_last, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/models/agent.dart';
-import 'package:valorant_flutter/app/views/agent_detail/components/agent_abilities.dart';
-import 'package:valorant_flutter/app/views/agent_detail/components/agent_banner.dart';
-import 'package:valorant_flutter/app/views/agent_detail/components/agent_info.dart';
+
+import '../../models/agent.dart';
+import 'components/main.dart';
 
 class AgentDetailScreen extends StatefulWidget {
   const AgentDetailScreen({Key? key}) : super(key: key);

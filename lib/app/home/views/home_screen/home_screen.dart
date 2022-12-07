@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:valorant_flutter/core/components/bottom_navigation_bar.dart';
 import 'components/card_pages.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,6 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNavigationBarValorant(),
       body: SafeArea(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           Row(

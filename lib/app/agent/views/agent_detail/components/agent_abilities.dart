@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/models/agent.dart';
+
+import '../../../models/agent.dart';
 
 class AgentAbilities extends StatelessWidget {
   final Agent agent;

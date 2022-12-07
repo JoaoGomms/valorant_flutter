@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/extensions/string_to_color.dart';
-import 'package:valorant_flutter/app/models/abilitiy.dart';
-import 'package:valorant_flutter/app/models/role.dart';
+import 'package:valorant_flutter/app/agent/models/role.dart';
+import 'package:valorant_flutter/extensions/string_to_color.dart';
+
+import 'abilitiy.dart';
 
 class Agent {
   final String name;

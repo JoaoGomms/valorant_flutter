@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:valorant_flutter/app/controllers/home_controller.dart';
 
+import '../../../../core/components/bottom_navigation_bar.dart';
+import '../../../home/controllers/home_controller.dart';
 import '../../models/agent.dart';
 import 'components/agent_card.dart';
 
@@ -51,6 +52,7 @@ class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNavigationBarValorant(),
       appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,

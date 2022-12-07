@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
-import 'package:valorant_flutter/app/services/valorant_service.dart';
+import 'package:valorant_flutter/app/agent/services/agent_service.dart';
 
 void main() {
   setUp(() {
@@ -15,9 +15,9 @@ void main() {
   test('Should return a list of agents', () async {
     Dio valorantDioClient = GetIt.I.get<Dio>(instanceName: 'valorantDioClient');
 
-    ValorantService valorantService = ValorantService(valorantDioClient);
+    AgentService agentService = AgentService(valorantDioClient);
 
-    final response = await valorantService.getValorantAgents();
+    final response = await agentService.getValorantAgents();
 
     for (var agent in response) {
       print(response.toString());
