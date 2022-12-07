@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:valorant_flutter/app/services/valorant_service.dart';
+import 'package:valorant_flutter/app/agent/services/agent_service.dart';
 
-import '../controllers/home_controller.dart';
+import '../app/agent/controllers/agent_list_controller.dart';
 
 class GetItConfig {
   GetIt sl = GetIt.instance;
@@ -16,8 +16,7 @@ class GetItConfig {
   }
 
   void registerControllers() {
-    sl.registerFactory<ValorantService>(
-        () => ValorantService(GetIt.I<Dio>(instanceName: 'valorantDioClient')));
-    sl.registerFactory<HomeController>(() => HomeController(GetIt.I()));
+    sl.registerFactory<AgentService>(() => AgentService(GetIt.I<Dio>(instanceName: 'valorantDioClient')));
+    sl.registerFactory<AgentListController>(() => AgentListController(GetIt.I()));
   }
 }

@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/models/agent.dart';
+import 'package:valorant_flutter/app/agent/models/agent.dart';
 
 class AgentBanner extends StatelessWidget {
   final Agent agent;
@@ -19,8 +19,7 @@ class AgentBanner extends StatelessWidget {
             opacity: 0.4,
           ),
           boxShadow: const [BoxShadow(color: Colors.black, blurRadius: 10.0)],
-          gradient: LinearGradient(
-              colors: agent.gradientColors.getRange(0, 2).toList())),
+          gradient: LinearGradient(colors: agent.gradientColors.getRange(0, 2).toList())),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -32,26 +31,21 @@ class AgentBanner extends StatelessWidget {
               )),
           Expanded(
             flex: 6,
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+            child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        agent.name,
-                        style:
-                            const TextStyle(fontSize: 24, color: Colors.white),
-                      ),
-                      Text(agent.role.name,
-                          style: const TextStyle(
-                              fontSize: 16, color: Colors.white)),
-                      const SizedBox(
-                        height: 8,
-                      )
-                    ],
+                  Text(
+                    agent.name,
+                    style: const TextStyle(fontSize: 24, color: Colors.white),
                   ),
-                ]),
+                  Text(agent.role.name, style: const TextStyle(fontSize: 16, color: Colors.white)),
+                  const SizedBox(
+                    height: 8,
+                  )
+                ],
+              ),
+            ]),
           ),
         ],
       ),

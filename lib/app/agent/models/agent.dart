@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/extensions/string_to_color.dart';
-import 'package:valorant_flutter/app/models/abilitiy.dart';
-import 'package:valorant_flutter/app/models/role.dart';
+import 'package:valorant_flutter/app/agent/models/role.dart';
+import 'package:valorant_flutter/extensions/string_to_color.dart';
+
+import 'abilitiy.dart';
 
 class Agent {
   final String name;
@@ -26,14 +27,10 @@ class Agent {
         imageUrl: json['bustPortrait'] ?? '',
         role: Role.fromJson(json['role']),
         gradientColors: (json['backgroundGradientColors'] as List).isNotEmpty
-            ? (json['backgroundGradientColors'] as List)
-                .map((e) => (e as String).toColor())
-                .toList()
+            ? (json['backgroundGradientColors'] as List).map((e) => (e as String).toColor()).toList()
             : [],
         abilities: (json['abilities'] as List).isNotEmpty
-            ? (json['abilities'] as List)
-                .map((e) => Ability.fromJson(e))
-                .toList()
+            ? (json['abilities'] as List).map((e) => Ability.fromJson(e)).toList()
             : [],
       );
 

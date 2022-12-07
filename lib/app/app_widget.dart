@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/views/agent_detail/agent_detail_screen.dart';
-import 'package:valorant_flutter/app/views/agents_list/agents_list.dart';
-import 'package:valorant_flutter/app/views/home_screen/home_screen.dart';
+import '../core/components/bottom_navigation_bar.dart';
+import 'agent/views/agent_detail/agent_detail_screen.dart';
+import 'agent/views/agents_list/agents_list.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class _AppWidgetState extends State<AppWidget> {
       debugShowCheckedModeBanner: false,
       initialRoute: '/home',
       routes: {
-        '/home': (context) => const HomeScreen(),
+        '/home': (context) => const BottomNavigationBarValorant(),
         '/agentsList': (context) => const AgentsList(),
         '/agentDetail': (context) => const AgentDetailScreen(),
       },

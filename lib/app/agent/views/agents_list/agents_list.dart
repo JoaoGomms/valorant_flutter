@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:valorant_flutter/app/controllers/home_controller.dart';
 
+import '../../controllers/agent_list_controller.dart';
 import '../../models/agent.dart';
 import 'components/agent_card.dart';
 
@@ -14,14 +14,13 @@ class AgentsList extends StatefulWidget {
 }
 
 class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
-  HomeController controller = GetIt.I.get<HomeController>();
+  AgentListController controller = GetIt.I.get<AgentListController>();
   late TabController tabController;
 
   @override
   void initState() {
     super.initState();
-    tabController = TabController(
-        initialIndex: 0, length: tabWidgets().length, vsync: this);
+    tabController = TabController(initialIndex: 0, length: tabWidgets().length, vsync: this);
     controller.fetchAgents();
   }
 
@@ -42,8 +41,7 @@ class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
         crossAxisSpacing: 8,
         children: agents
             .map((agent) => InkWell(
-                onTap: () => Navigator.pushNamed(context, '/agentDetail',
-                    arguments: agent),
+                onTap: () => Navigator.pushNamed(context, '/agentDetail', arguments: agent),
                 child: AgentCard(agent: agent)))
             .toList());
   }
@@ -51,22 +49,18 @@ class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottomNavigationBar: const BottomNavigationBarValorant(),
       appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
-          title: const Image(
-            height: 56,
-            image: AssetImage(
-              'assets/valorant_icon.png',
-            ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        title: const Image(
+          height: 56,
+          image: AssetImage(
+            'assets/valorant_icon.png',
           ),
-          leading: IconButton(
-              color: Colors.black,
-              onPressed: () => Navigator.canPop(context)
-                  ? Navigator.pop(context)
-                  : Navigator.pushNamed(context, '/home'),
-              icon: const Icon(Icons.arrow_back))),
+        ),
+      ),
       body: SafeArea(
         bottom: false,
         child: Padding(
@@ -91,8 +85,7 @@ class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   controller: tabController,
                   labelColor: Colors.red,
-                  labelStyle: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.w600),
+                  labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                   unselectedLabelColor: Colors.black,
                   indicator: const UnderlineTabIndicator(
                     insets: EdgeInsets.symmetric(horizontal: 32),
