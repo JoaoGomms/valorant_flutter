@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/agent.dart';
+import '../../../models/agent_model.dart';
 
 class AgentInfo extends StatelessWidget {
-  final Agent agent;
+  final AgentModel agent;
   const AgentInfo({Key? key, required this.agent}) : super(key: key);
 
   @override

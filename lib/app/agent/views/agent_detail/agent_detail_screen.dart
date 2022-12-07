@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../models/agent.dart';
+import '../../models/agent_model.dart';
 import 'components/main.dart';
 
 class AgentDetailScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class AgentDetailScreen extends StatefulWidget {
 class _AgentDetailScreenState extends State<AgentDetailScreen> {
   @override
   Widget build(BuildContext context) {
-    Agent agent = ModalRoute.of(context)?.settings.arguments as Agent;
+    AgentModel agent = ModalRoute.of(context)?.settings.arguments as AgentModel;
 
     return Scaffold(
       body: Column(children: [

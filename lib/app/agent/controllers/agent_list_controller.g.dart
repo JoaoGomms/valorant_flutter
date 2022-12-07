@@ -12,13 +12,13 @@ mixin _$AgentListController on _AgentListControllerBase, Store {
   late final _$agentsAtom = Atom(name: '_AgentListControllerBase.agents', context: context);
 
   @override
-  ObservableList<Agent> get agents {
+  ObservableList<AgentModel> get agents {
     _$agentsAtom.reportRead();
     return super.agents;
   }
 
   @override
-  set agents(ObservableList<Agent> value) {
+  set agents(ObservableList<AgentModel> value) {
     _$agentsAtom.reportWrite(value, super.agents, () {
       super.agents = value;
     });

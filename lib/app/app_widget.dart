@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../core/components/bottom_navigation_bar.dart';
 import 'agent/views/agent_detail/agent_detail_screen.dart';
-import 'agent/views/agents_list/agents_list.dart';
+import 'agent/views/agents_list/agent_list_screen.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _AppWidgetState extends State<AppWidget> {
       initialRoute: '/home',
       routes: {
         '/home': (context) => const BottomNavigationBarValorant(),
-        '/agentsList': (context) => const AgentsList(),
+        '/agentsList': (context) => const AgentListScreen(),
         '/agentDetail': (context) => const AgentDetailScreen(),
       },
     );

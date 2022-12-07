@@ -3,17 +3,17 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../controllers/agent_list_controller.dart';
-import '../../models/agent.dart';
+import '../../models/agent_model.dart';
 import 'components/agent_card.dart';
 
-class AgentsList extends StatefulWidget {
-  const AgentsList({Key? key}) : super(key: key);
+class AgentListScreen extends StatefulWidget {
+  const AgentListScreen({Key? key}) : super(key: key);
 
   @override
-  State<AgentsList> createState() => _AgentsListState();
+  State<AgentListScreen> createState() => _AgentListScreenState();
 }
 
-class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
+class _AgentListScreenState extends State<AgentListScreen> with TickerProviderStateMixin {
   AgentListController controller = GetIt.I.get<AgentListController>();
   late TabController tabController;
 
@@ -34,7 +34,7 @@ class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
     ];
   }
 
-  Widget _buildGridViews(List<Agent> agents) {
+  Widget _buildGridViews(List<AgentModel> agents) {
     return GridView.count(
         childAspectRatio: 0.5,
         crossAxisCount: 2,
