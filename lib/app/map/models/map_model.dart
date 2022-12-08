@@ -6,6 +6,6 @@ class MapModel {
   MapModel(this.name, this.imageUrl, this.miniMapImageUrl);
 
   factory MapModel.fromJson(Map<String, dynamic> json) {
-    return MapModel(json['name'], json['imageUrl'], json['miniMapImageUrl']);
+    return MapModel(json['displayName'], json['splash'], json['displayIcon']);
   }
 }

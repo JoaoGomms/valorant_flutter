@@ -9,11 +9,29 @@ main() {
   Dio dio = MockDio();
   MapService service = MapService(dio);
 
-  test('should return a list of Maps from valorant api', () async {
+  test('should return a list of Maps from valorant api when success', () async {
+    var path = '/maps';
+    var mockName = 'Ascent';
+    var mockImageUrl =
+        'https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/displayicon.png';
+    var mockMiniMapImageUrl =
+        'https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/splash.png';
 
-    when(() => dio.get('https://valorant-api.com/v1/maps')).thenAnswer((invocation) async => Response(requestOptions: RequestOptions.c ));
+    when(() => dio.get(path)).thenAnswer((invocation) async => Response(
+            requestOptions: RequestOptions(path: path),
+            statusCode: 200,
+            data: [
+              {
+                "displayName": mockName,
+                "displayIcon": mockMiniMapImageUrl,
+                "splash": mockImageUrl,
+              }
+            ]));
 
     final response = await service.fetchMaps();
-    expect(response., matcher)
+
+    expect(response.first.name, mockName);
+    expect(response.first.imageUrl, mockImageUrl);
+    expect(response.first.miniMapImageUrl, mockMiniMapImageUrl);
   });
 }
