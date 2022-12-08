@@ -14,7 +14,7 @@ class MapService {
       final response = await dio.get('/maps');
 
       if (response.statusCode == 200) {
-        for (var map in response.data) {
+        for (var map in response.data['data']) {
           mapModelList.add(MapModel.fromJson(map));
         }
         return mapModelList;

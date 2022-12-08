@@ -25,18 +25,12 @@ mixin _$MapListController on _MapListControllerBase, Store {
     });
   }
 
-  late final _$_MapListControllerBaseActionController =
-      ActionController(name: '_MapListControllerBase', context: context);
+  late final _$fetchMapListAsyncAction =
+      AsyncAction('_MapListControllerBase.fetchMapList', context: context);
 
   @override
-  void fetchMapList() {
-    final _$actionInfo = _$_MapListControllerBaseActionController.startAction(
-        name: '_MapListControllerBase.fetchMapList');
-    try {
-      return super.fetchMapList();
-    } finally {
-      _$_MapListControllerBaseActionController.endAction(_$actionInfo);
-    }
+  Future<void> fetchMapList() {
+    return _$fetchMapListAsyncAction.run(() => super.fetchMapList());
   }
 
   @override

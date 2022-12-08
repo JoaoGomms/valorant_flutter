@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:valorant_flutter/app/agent/services/agent_service.dart';
+import 'package:valorant_flutter/app/map/services/map_service.dart';
 
 import '../models/map_model.dart';
 
@@ -8,7 +8,7 @@ part 'map_list_controller.g.dart';
 class MapListController = _MapListControllerBase with _$MapListController;
 
 abstract class _MapListControllerBase with Store {
-  final AgentService service;
+  final MapService service;
 
   _MapListControllerBase(this.service);
 
@@ -16,7 +16,8 @@ abstract class _MapListControllerBase with Store {
   ObservableList<MapModel> mapsList = ObservableList();
 
   @action
-  void fetchMapList() {
-    mapsList.add(MapModel('Mapa Nome', 'Imagem url', "Minimapa url"));
+  Future<void> fetchMapList() async {
+    final mapListFromApi = await service.fetchMaps();
+    mapsList.addAll(mapListFromApi);
   }
 }
