@@ -24,8 +24,7 @@ class GetItConfig {
   }
 
   void registerControllers() {
-    sl.registerFactory<AgentListController>(
-        () => AgentListController(GetIt.I()));
+    sl.registerFactory<AgentListController>(() => AgentListController(GetIt.I()));
     sl.registerFactory<MapListController>(() => MapListController(GetIt.I()));
   }
 

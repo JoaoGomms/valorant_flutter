@@ -12,15 +12,11 @@ main() {
   test('should return a list of Maps from valorant api when success', () async {
     var path = '/maps';
     var mockName = 'Ascent';
-    var mockImageUrl =
-        'https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/displayicon.png';
-    var mockMiniMapImageUrl =
-        'https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/splash.png';
+    var mockImageUrl = 'https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/displayicon.png';
+    var mockMiniMapImageUrl = 'https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/splash.png';
 
-    when(() => dio.get(any())).thenAnswer((invocation) async => Response(
-            requestOptions: RequestOptions(path: path),
-            statusCode: 200,
-            data: {
+    when(() => dio.get(any()))
+        .thenAnswer((invocation) async => Response(requestOptions: RequestOptions(path: path), statusCode: 200, data: {
               "status": 200,
               "data": [
                 {

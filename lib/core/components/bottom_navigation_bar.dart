@@ -6,12 +6,10 @@ class BottomNavigationBarValorant extends StatefulWidget {
   const BottomNavigationBarValorant({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavigationBarValorant> createState() =>
-      _BottomNavigationBarValorantState();
+  State<BottomNavigationBarValorant> createState() => _BottomNavigationBarValorantState();
 }
 
-class _BottomNavigationBarValorantState
-    extends State<BottomNavigationBarValorant> {
+class _BottomNavigationBarValorantState extends State<BottomNavigationBarValorant> {
   var index = 0;
 
   List<BottomNavigationBarItem> bottomNavigationBarItems = const [

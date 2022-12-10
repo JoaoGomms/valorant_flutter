@@ -14,12 +14,9 @@ class _MapTileWidgetState extends State<MapTileWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints:
-          BoxConstraints(minHeight: MediaQuery.of(context).size.height * 0.2),
+      constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height * 0.15),
       decoration: BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.cover,
-              image: CachedNetworkImageProvider(widget.map.imageUrl)),
+          image: DecorationImage(fit: BoxFit.cover, image: CachedNetworkImageProvider(widget.map.imageUrl)),
           borderRadius: BorderRadius.circular(8)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,10 +33,7 @@ class _MapTileWidgetState extends State<MapTileWidget> {
                   child: Center(
                       child: Text(
                     widget.map.name,
-                    style: const TextStyle(
-                        fontSize: 24,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
                   )),
                 ),
               ),
