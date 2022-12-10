@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/agent/views/agents_list/agents_list.dart';
+import 'package:valorant_flutter/app/agent/views/agents_list/agent_list_screen.dart';
+import 'package:valorant_flutter/app/map/views/map_list_screen.dart';
 
 class BottomNavigationBarValorant extends StatefulWidget {
   const BottomNavigationBarValorant({Key? key}) : super(key: key);
@@ -18,8 +19,8 @@ class _BottomNavigationBarValorantState extends State<BottomNavigationBarValoran
   ];
 
   List<Widget?> bottomNavigationBarScreens = const [
-    AgentsList(),
-    Center(child: Text('Mapas')),
+    AgentListScreen(),
+    MapListScreen(),
     Center(child: Text('Elos')),
   ];
   @override

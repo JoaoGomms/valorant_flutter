@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
+import 'package:valorant_flutter/core/components/app_bar_valorant.dart';
+import 'package:valorant_flutter/core/components/top_title_valorant.dart';
 
 import '../../controllers/agent_list_controller.dart';
-import '../../models/agent.dart';
+import '../../models/agent_model.dart';
 import 'components/agent_card.dart';
 
-class AgentsList extends StatefulWidget {
-  const AgentsList({Key? key}) : super(key: key);
+class AgentListScreen extends StatefulWidget {
+  const AgentListScreen({Key? key}) : super(key: key);
 
   @override
-  State<AgentsList> createState() => _AgentsListState();
+  State<AgentListScreen> createState() => _AgentListScreenState();
 }
 
-class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
+class _AgentListScreenState extends State<AgentListScreen> with TickerProviderStateMixin {
   AgentListController controller = GetIt.I.get<AgentListController>();
   late TabController tabController;
 
@@ -34,7 +36,7 @@ class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
     ];
   }
 
-  Widget _buildGridViews(List<Agent> agents) {
+  Widget _buildGridViews(List<AgentModel> agents) {
     return GridView.count(
         childAspectRatio: 0.5,
         crossAxisCount: 2,
@@ -50,17 +52,7 @@ class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       // bottomNavigationBar: const BottomNavigationBarValorant(),
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: const Image(
-          height: 56,
-          image: AssetImage(
-            'assets/valorant_icon.png',
-          ),
-        ),
-      ),
+      appBar: appBarValorant(),
       body: SafeArea(
         bottom: false,
         child: Padding(
@@ -70,16 +62,7 @@ class _AgentsListState extends State<AgentsList> with TickerProviderStateMixin {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              const SizedBox(
-                height: 24,
-              ),
-              const Text(
-                'Escolha seu Agente',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
-              ),
-              const SizedBox(
-                height: 48,
-              ),
+              topTitleValorant(title: 'Escolha seu Agente'),
               TabBar(
                   isScrollable: true,
                   padding: const EdgeInsets.symmetric(vertical: 12),

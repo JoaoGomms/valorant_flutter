@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../models/agent.dart';
+import '../../../models/agent_model.dart';
 
 class AgentAbilities extends StatelessWidget {
-  final Agent agent;
+  final AgentModel agent;
   const AgentAbilities({Key? key, required this.agent}) : super(key: key);
 
   @override

@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:valorant_flutter/app/agent/models/agent.dart';
+import 'package:valorant_flutter/app/agent/models/agent_model.dart';
 
 class AgentBanner extends StatelessWidget {
-  final Agent agent;
+  final AgentModel agent;
   const AgentBanner({Key? key, required this.agent}) : super(key: key);
 
   @override
