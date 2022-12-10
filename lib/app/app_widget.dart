@@ -14,14 +14,9 @@ class AppWidget extends StatefulWidget {
 class _AppWidgetState extends State<AppWidget> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
-      routes: {
-        '/home': (context) => const BottomNavigationBarValorant(),
-        '/agentsList': (context) => const AgentListScreen(),
-        '/agentDetail': (context) => const AgentDetailScreen(),
-      },
+      home: BottomNavigationBarValorant(),
     );
   }
 }

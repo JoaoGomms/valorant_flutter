@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -14,16 +15,18 @@ class MapCardWidget extends StatefulWidget {
 class _MapCardWidgetState extends State<MapCardWidget> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: ((context, index) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+    return Container(
+      constraints:
+          BoxConstraints(minWidth: MediaQuery.of(context).size.width * 0.9),
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.cover,
+              image: CachedNetworkImageProvider(widget.map.imageUrl)),
+          borderRadius: BorderRadius.circular(8)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(widget.map.imageUrl),
-          Text(widget.map.miniMapImageUrl),
-          Text(widget.map.name),
-        ],
-      );
-    }));
+      ),
+    );
   }
 }
