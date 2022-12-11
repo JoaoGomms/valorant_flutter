@@ -3,14 +3,14 @@ class TierModel {
   final String divisionName;
   final String hexColor;
   final String hexBackgroundColor;
-  final String largeIconUrl;
+  final String iconUrl;
 
   TierModel(
       {required this.tierName,
       required this.divisionName,
       required this.hexColor,
       required this.hexBackgroundColor,
-      required this.largeIconUrl});
+      required this.iconUrl});
 
   factory TierModel.fromJson(Map<String, dynamic> json) {
     return TierModel(
@@ -18,6 +18,6 @@ class TierModel {
         divisionName: json['divisionName'] ?? '',
         hexColor: json['color'] ?? '',
         hexBackgroundColor: json['backgroundColor'] ?? '',
-        largeIconUrl: json['largeIcon'] ?? '');
+        iconUrl: json['smallIcon'] ?? '');
   }
 }

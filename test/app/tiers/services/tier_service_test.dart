@@ -40,6 +40,6 @@ main() {
     expect(response.first.divisionName, mockTierModelAttributes['divisionName']);
     expect(response.first.hexColor, mockTierModelAttributes['color']);
     expect(response.first.hexBackgroundColor, mockTierModelAttributes['backgroundColor']);
-    expect(response.first.largeIconUrl, mockTierModelAttributes['largeIcon']);
+    expect(response.first.iconUrl, mockTierModelAttributes['largeIcon']);
   });
 }
