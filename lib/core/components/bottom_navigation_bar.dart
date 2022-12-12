@@ -25,7 +25,7 @@ class _BottomNavigationBarValorantState
   Widget build(BuildContext context) {
     List<BottomNavigationBarItem> bottomNavigationBarItems = [
       BottomNavigationBarItem(
-          icon: _buildIcon('assets/agent.svg'), label: 'Agentes'),
+          icon: _buildIcon('lib/assets/icons/agent.svg'), label: 'Agentes'),
       BottomNavigationBarItem(
           icon: _buildIcon('assets/map.svg'), label: 'Mapas'),
       BottomNavigationBarItem(

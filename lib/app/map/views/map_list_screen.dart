@@ -3,7 +3,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:valorant_flutter/app/map/controller/map_list_controller.dart';
 import 'package:valorant_flutter/core/components/app_bar_valorant.dart';
-import 'package:valorant_flutter/core/components/top_title_valorant.dart';
 
 import 'components/map_tile_widget.dart';
 

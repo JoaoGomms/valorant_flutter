@@ -26,7 +26,6 @@ abstract class _TierControllerBase with Store {
       isLoadingTiers = false;
     } catch (e) {
       isLoadingTiers = false;
-      print(e);
     }
   }
 }

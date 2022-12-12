@@ -1,23 +1,30 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get_it/get_it.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:valorant_flutter/app/agent/models/agent_model.dart';
 import 'package:valorant_flutter/app/agent/services/agent_service.dart';
 
+class FakeAgent with Fake implements AgentModel {}
+
+class MockDio extends Mock implements Dio {}
+
 void main() {
-  setUp(() {
-    GetIt.I.registerFactory<Dio>(
-        () => Dio(BaseOptions(
-              baseUrl: 'https://valorant-api.com/v1',
-            )),
-        instanceName: 'valorantDioClient');
-  });
+  Dio dio = MockDio();
+  AgentService service = AgentService(dio);
 
   test('Should return a list of agents', () async {
-    Dio valorantDioClient = GetIt.I.get<Dio>(instanceName: 'valorantDioClient');
+    var path = '/agents';
 
-    AgentService agentService = AgentService(valorantDioClient);
+    when(() => dio.get(any(),
+            queryParameters: {'isPlayableCharacter': any(), 'language': any()}))
+        .thenAnswer((_) async => Response(
+                requestOptions: RequestOptions(path: path),
+                statusCode: 200,
+                data: {
+                  'data': [FakeAgent()]
+                }));
 
-    final response = await agentService.getValorantAgents();
+    final response = await service.getValorantAgents();
 
     for (var agent in response) {
       print(response.toString());
