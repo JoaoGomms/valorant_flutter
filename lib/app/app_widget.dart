@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_flutter/app/agent/views/agent_detail/agent_detail_screen.dart';
 
 import '../core/components/bottom_navigation_bar.dart';
 
@@ -12,9 +13,10 @@ class AppWidget extends StatefulWidget {
 class _AppWidgetState extends State<AppWidget> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavigationBarValorant(),
+      routes: {'/agentDetail': (context) => const AgentDetailScreen()},
+      home: const BottomNavigationBarValorant(),
     );
   }
 }

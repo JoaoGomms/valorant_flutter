@@ -8,12 +8,10 @@ class BottomNavigationBarValorant extends StatefulWidget {
   const BottomNavigationBarValorant({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavigationBarValorant> createState() =>
-      _BottomNavigationBarValorantState();
+  State<BottomNavigationBarValorant> createState() => _BottomNavigationBarValorantState();
 }
 
-class _BottomNavigationBarValorantState
-    extends State<BottomNavigationBarValorant> {
+class _BottomNavigationBarValorantState extends State<BottomNavigationBarValorant> {
   var index = 0;
 
   List<Widget?> bottomNavigationBarScreens = const [
@@ -24,8 +22,7 @@ class _BottomNavigationBarValorantState
   @override
   Widget build(BuildContext context) {
     List<BottomNavigationBarItem> bottomNavigationBarItems = const [
-      BottomNavigationBarItem(
-          icon: Icon(ValorantAppIcons.agent), label: 'Agentes'),
+      BottomNavigationBarItem(icon: Icon(ValorantAppIcons.agent), label: 'Agentes'),
       BottomNavigationBarItem(icon: Icon(ValorantAppIcons.map), label: 'Mapas'),
       BottomNavigationBarItem(icon: Icon(ValorantAppIcons.tier), label: 'Elos'),
     ];
