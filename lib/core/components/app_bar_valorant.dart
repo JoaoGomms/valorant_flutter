@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 AppBar appBarValorant() {
   return AppBar(
-    toolbarHeight: 120,
+    toolbarHeight: 48,
     elevation: 0,
     backgroundColor: Colors.transparent,
     centerTitle: true,
