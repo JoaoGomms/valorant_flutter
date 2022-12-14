@@ -8,26 +8,45 @@ class FakeAgent with Fake implements AgentModel {}
 
 class MockDio extends Mock implements Dio {}
 
+var agentServiceMockResponse = {
+  'displayName': 'Name',
+  'description': 'Description',
+  'bustPortrait': 'Portrait',
+  'role': {
+    'displayName': 'RoleName',
+    'description': 'RoleDescription',
+    'displayIcon': 'RoleIcon',
+  },
+  'backgroundGradientColors': ['ffffff', '222222'],
+  'abilities': [
+    {
+      'slot': '1',
+      'displayName': 'RoleName',
+      'description': 'RoleDescription',
+      'displayIcon': 'RoleIcon',
+    }
+  ],
+};
+
 void main() {
-  Dio dio = MockDio();
-  AgentService service = AgentService(dio);
+  late Dio dio;
+  late AgentService service;
 
-  test('Should return a list of agents', () async {
-    var path = '/agents';
+  setUp(() {
+    dio = MockDio();
+    service = AgentService(dio);
+  });
 
-    when(() => dio.get(any(),
-            queryParameters: {'isPlayableCharacter': any(), 'language': any()}))
-        .thenAnswer((_) async => Response(
-                requestOptions: RequestOptions(path: path),
-                statusCode: 200,
-                data: {
-                  'data': [FakeAgent()]
-                }));
-
+  test('Should ', () async {
+    // arrange
+    when(() => dio.get(any(), queryParameters: {'isPlayableCharacter': true, 'language': 'pt-BR'}))
+        .thenAnswer((_) async => Response(requestOptions: RequestOptions(path: ''), statusCode: 200, data: {
+              'data': [agentServiceMockResponse]
+            }));
+    // act
     final response = await service.getValorantAgents();
 
-    for (var agent in response) {
-      print(response.toString());
-    }
+    print(response);
+    // assert
   });
 }
