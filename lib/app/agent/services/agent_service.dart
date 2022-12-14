@@ -10,8 +10,7 @@ class AgentService {
   Future<List<AgentModel>> getValorantAgents() async {
     List<AgentModel> agentsList = [];
     try {
-      final response = await dio.get('/agents',
-          queryParameters: {'isPlayableCharacter': true, 'language': 'pt-BR'});
+      final response = await dio.get('/agents', queryParameters: {'isPlayableCharacter': true, 'language': 'pt-BR'});
 
       if (response.statusCode == 200) {
         for (var agent in response.data['data'] as List) {
@@ -20,7 +19,7 @@ class AgentService {
       }
 
       return agentsList;
-    } on DioError {
+    } on DioError catch (e) {
       throw Exception('Dio Error');
     } catch (e) {
       throw Exception('Unexpected Error');

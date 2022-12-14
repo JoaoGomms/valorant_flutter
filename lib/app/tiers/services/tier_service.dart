@@ -11,8 +11,7 @@ class TierService {
     try {
       final response = await dio.get('/competitivetiers');
 
-      List<dynamic> listOfLastEpisodeTiers =
-          ((response.data['data'] as List).last)['tiers'];
+      List<dynamic> listOfLastEpisodeTiers = ((response.data['data'] as List).last)['tiers'];
 
       for (var tier in listOfLastEpisodeTiers) {
         tierList.add(TierModel.fromJson(tier));

@@ -8,12 +8,10 @@ class BottomNavigationBarValorant extends StatefulWidget {
   const BottomNavigationBarValorant({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavigationBarValorant> createState() =>
-      _BottomNavigationBarValorantState();
+  State<BottomNavigationBarValorant> createState() => _BottomNavigationBarValorantState();
 }
 
-class _BottomNavigationBarValorantState
-    extends State<BottomNavigationBarValorant> {
+class _BottomNavigationBarValorantState extends State<BottomNavigationBarValorant> {
   var index = 0;
 
   List<Widget?> bottomNavigationBarScreens = const [
@@ -24,12 +22,9 @@ class _BottomNavigationBarValorantState
   @override
   Widget build(BuildContext context) {
     List<BottomNavigationBarItem> bottomNavigationBarItems = [
-      BottomNavigationBarItem(
-          icon: _buildIcon('lib/assets/icons/agent.svg'), label: 'Agentes'),
-      BottomNavigationBarItem(
-          icon: _buildIcon('assets/map.svg'), label: 'Mapas'),
-      BottomNavigationBarItem(
-          icon: _buildIcon('assets/tier.svg'), label: 'Elos'),
+      BottomNavigationBarItem(icon: _buildIcon('lib/assets/icons/agent.svg'), label: 'Agentes'),
+      BottomNavigationBarItem(icon: _buildIcon('assets/map.svg'), label: 'Mapas'),
+      BottomNavigationBarItem(icon: _buildIcon('assets/tier.svg'), label: 'Elos'),
     ];
 
     return Scaffold(
