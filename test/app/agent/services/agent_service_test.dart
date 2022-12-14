@@ -37,7 +37,7 @@ void main() {
     service = AgentService(dio);
   });
 
-  test('Should ', () async {
+  test('Should return a list of agents when successful', () async {
     // arrange
     when(() => dio.get(any(), queryParameters: {'isPlayableCharacter': true, 'language': 'pt-BR'}))
         .thenAnswer((_) async => Response(requestOptions: RequestOptions(path: ''), statusCode: 200, data: {
@@ -46,7 +46,10 @@ void main() {
     // act
     final response = await service.getValorantAgents();
 
-    print(response);
+    verify(() => dio.get('/agents', queryParameters: {'isPlayableCharacter': true, 'language': 'pt-BR'})).called(1);
+    expect(response.first, isA<AgentModel>());
+    expect(response.first.name, agentServiceMockResponse['displayName']);
+    expect(response.first.description, agentServiceMockResponse['description']);
     // assert
   });
 }

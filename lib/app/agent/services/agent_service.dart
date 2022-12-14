@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 
 import '../models/agent_model.dart';
@@ -20,6 +22,7 @@ class AgentService {
 
       return agentsList;
     } on DioError catch (e) {
+      log(e.message);
       throw Exception('Dio Error');
     } catch (e) {
       throw Exception('Unexpected Error');
