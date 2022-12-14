@@ -51,12 +51,5 @@ ios/Flutter/Release.xcconfig
 macos/Podfile
 macos/Flutter/Flutter-Debug.xcconfig
 macos/Flutter/Flutter-Release.xcconfig
-ios/Flutter/Debug.xcconfig
-ios/Flutter/Release.xcconfig
-.vscode/launch.json
-ios/Flutter/Debug.xcconfig
-ios/Flutter/Release.xcconfig
-macos/Flutter/Flutter-Debug.xcconfig
-macos/Flutter/Flutter-Release.xcconfig
 pubspec.lock
-.vscode/launch.json
+/.vscode
