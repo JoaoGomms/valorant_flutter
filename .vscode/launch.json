@@ -5,10 +5,26 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "valorant_flutter",
+      "name": "Physical Device",
       "request": "launch",
       "type": "dart",
-      "program": "lib/main.dart"
+      "program": "lib/main.dart",
+      "args": [
+        "-d",
+        "RXCT703H13Y"
+      ]
+
+    },
+    {
+      "name": "iPhone 12 Pro Emulator",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "-d",
+        "B0326447-8AF9-416B-8CF8-E7BC104AF66E"
+      ]
+
     },
     {
       "name": "valorant_flutter (profile mode)",
