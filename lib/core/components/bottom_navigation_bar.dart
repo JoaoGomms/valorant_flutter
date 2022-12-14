@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:valorant_flutter/app/agent/views/agents_list/agent_list_screen.dart';
 import 'package:valorant_flutter/app/map/views/map_list_screen.dart';
 import 'package:valorant_flutter/app/tiers/views/tier_list_screen.dart';
+import 'package:valorant_flutter/design/valorant_app_icons.dart';
 
 class BottomNavigationBarValorant extends StatefulWidget {
   const BottomNavigationBarValorant({Key? key}) : super(key: key);
@@ -21,10 +22,10 @@ class _BottomNavigationBarValorantState extends State<BottomNavigationBarValoran
   ];
   @override
   Widget build(BuildContext context) {
-    List<BottomNavigationBarItem> bottomNavigationBarItems = [
-      BottomNavigationBarItem(icon: _buildIcon('lib/assets/icons/agent.svg'), label: 'Agentes'),
-      BottomNavigationBarItem(icon: _buildIcon('assets/map.svg'), label: 'Mapas'),
-      BottomNavigationBarItem(icon: _buildIcon('assets/tier.svg'), label: 'Elos'),
+    List<BottomNavigationBarItem> bottomNavigationBarItems = const [
+      BottomNavigationBarItem(icon: Icon(ValorantAppIcons.agent), label: 'Agentes'),
+      BottomNavigationBarItem(icon: Icon(ValorantAppIcons.map), label: 'Mapas'),
+      BottomNavigationBarItem(icon: Icon(ValorantAppIcons.tier), label: 'Elos'),
     ];
 
     return Scaffold(
