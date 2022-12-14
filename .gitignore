@@ -53,3 +53,7 @@ macos/Flutter/Flutter-Debug.xcconfig
 macos/Flutter/Flutter-Release.xcconfig
 pubspec.lock
 /.vscode
+
+#Generated Files
+
+*.g.dart
