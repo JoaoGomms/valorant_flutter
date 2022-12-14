@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:valorant_flutter/app/agent/services/agent_service.dart';
 import 'package:valorant_flutter/app/map/controller/map_list_controller.dart';
+import 'package:valorant_flutter/app/tiers/controllers/tier_controller.dart';
+import 'package:valorant_flutter/app/tiers/services/tier_service.dart';
 
 import '../app/agent/controllers/agent_list_controller.dart';
 import '../app/map/services/map_service.dart';
@@ -26,6 +28,7 @@ class GetItConfig {
   void registerControllers() {
     sl.registerFactory<AgentListController>(() => AgentListController(GetIt.I()));
     sl.registerFactory<MapListController>(() => MapListController(GetIt.I()));
+    sl.registerFactory<TierController>(() => TierController(GetIt.I()));
   }
 
   void registerServices() {
@@ -33,5 +36,6 @@ class GetItConfig {
 
     sl.registerFactory<AgentService>(() => AgentService(valorantDioInstance));
     sl.registerFactory<MapService>(() => MapService(valorantDioInstance));
+    sl.registerFactory<TierService>(() => TierService(valorantDioInstance));
   }
 }
